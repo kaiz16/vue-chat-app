@@ -1,0 +1,23 @@
+{
+  "name": "vue-chat-app-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "kaiz16",
+  "license": "ISC",
+  "dependencies": {
+    "connect-redis": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.10.7",
+    "redis": "^3.0.2",
+    "session-file-store": "^1.4.0",
+    "socket.io": "^2.3.0"
+  }
+}
