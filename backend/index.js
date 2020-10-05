@@ -28,15 +28,20 @@ mongoDb.on('open', () => {
 mongoDb.on('error', (error) => {
     console.log(`Faced Error ${error}`)
 })
-// Sockets 
-// const server = require('http').Server(app);
-// const io = require('socket.io')(server);
 
-// io.on('connection', () => {
-// console.log('User connected')
-// })
+
 const port = process.env.PORT || 5000
 // Running app on a given port
-app.listen(port, () => {
+
+const server = app.listen(port, () => {
     console.log(`server is running on port ${port}`)
 });
+
+// Sockets 
+const io = require('socket.io')(server);
+
+io.on('connection', socket => {
+    socket.on('newMessage', (newMessage) => {
+        socket.broadcast.emit('addMessage', newMessage)
+    })
+})

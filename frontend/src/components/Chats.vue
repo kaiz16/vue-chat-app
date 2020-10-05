@@ -11,12 +11,16 @@
     </div>
     <div class="div"></div>
     <div class="add-message">
-      <AddMessage @addMessage="addMessage" />
+      <AddMessage />
     </div>
   </div>
 </template>
 
 <script>
+/*eslint-disable*/
+import io from "socket.io-client";
+var socket = io.connect("http://localhost:5000");
+
 import axios from "axios";
 import UserMessage from "./UserMessage.vue";
 import AddMessage from "./AddMessage.vue";
@@ -34,11 +38,10 @@ export default {
     let { data } = await axios.get("http://localhost:5000/messages");
     this.messages = data;
   },
-  methods: {
-    addMessage(newMessage) {
-      console.log(newMessage);
-      this.messages.push(JSON.parse(JSON.stringify(newMessage)));
-    },
+  created() {
+    socket.on("addMessage", (message) => {
+      this.messages.push(message);
+    });
   },
 };
 </script>
