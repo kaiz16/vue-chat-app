@@ -14,7 +14,7 @@ app.use(express.json({ extended: false }));
 app.use('/users', require('./RestApi/user'))
 app.use('/messages/', require('./RestApi/message'))
 
-const port = process.env.PORT ? process.env.PORT : 5000
+// const port = process.env.PORT || 5000
 
 // Connecting to Mongo Db Atlas
 mongoose.connect(process.env.Mongodb,
@@ -40,7 +40,7 @@ app.get(/.*/, (req, res) => {
 })
 // }
 
-// const port = process.env.PORT || 5000
+const port = process.env.PORT || 5000
 // Running app on a given port
 
 const server = app.listen(port, () => {
