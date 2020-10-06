@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === "production") {
     // Serves files from our dist directory 
     app.use(express.static(__dirname + '/frontend/dist'))
     // For managing the routes in a SPA
-    app.get('/.*/', (req, res) => {
+    app.get(/.*/, (req, res) => {
         res.sendFile(__dirname + '/frontend/dist/index.html')
     })
 }
