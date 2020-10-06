@@ -18,7 +18,7 @@
 
 <script>
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect("http://192.168.1.11:5000");
 import axios from "axios";
 import UserMessage from "./UserMessage.vue";
 import AddMessage from "./AddMessage.vue";
