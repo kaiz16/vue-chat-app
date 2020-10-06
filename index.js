@@ -14,6 +14,8 @@ app.use(express.json({ extended: false }));
 app.use('/users', require('./RestApi/user'))
 app.use('/messages/', require('./RestApi/message'))
 
+const port = process.env.PORT ? process.env.PORT : 5000
+
 // Connecting to Mongo Db Atlas
 mongoose.connect(process.env.Mongodb,
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, }
@@ -28,6 +30,7 @@ mongoDb.on('open', () => {
 mongoDb.on('error', (error) => {
     console.log(`Faced Error ${error}`)
 })
+
 if (process.env.NODE_ENV === "production") {
     // Serves files from our dist directory 
     app.use(express.static(__dirname + '/frontend/dist'))
@@ -37,7 +40,7 @@ if (process.env.NODE_ENV === "production") {
     })
 }
 
-const port = process.env.PORT || 5000
+// const port = process.env.PORT || 5000
 // Running app on a given port
 
 const server = app.listen(port, () => {
