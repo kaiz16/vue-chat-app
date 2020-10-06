@@ -17,10 +17,8 @@
 </template>
 
 <script>
-/*eslint-disable*/
 import io from "socket.io-client";
-var socket = io.connect("http://localhost:5000");
-
+const socket = io.connect("http://localhost:5000");
 import axios from "axios";
 import UserMessage from "./UserMessage.vue";
 import AddMessage from "./AddMessage.vue";
@@ -35,7 +33,7 @@ export default {
     };
   },
   async mounted() {
-    let { data } = await axios.get("http://localhost:5000/messages");
+    let { data } = await axios.get('/api/messages');
     this.messages = data;
   },
   created() {

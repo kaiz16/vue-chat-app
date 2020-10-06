@@ -29,7 +29,6 @@
 </template>
 
 <script>
-/*eslint-disable*/
 import axios from "axios";
 export default {
   data() {
@@ -43,16 +42,16 @@ export default {
     signUp() {
       this.isUserInValid = false;
       axios
-        .post("http://localhost:5000/users/create", {
+        .post("/api/users/create", {
           userName: this.username,
         })
         .then((res) => this.$emit("verifyUser", res.data.userName))
-        .catch((err) => (this.isUserExist = true));
+        .catch(() => (this.isUserExist = true));
     },
     async signIn() {
       this.isUserExist = false;
       let { data } = await axios.get(
-        `http://localhost:5000/users/${this.username}`
+        `/api/users/${this.username}`
       );
       if (data) return this.$emit("verifyUser", data.userName);
       else return (this.isUserInValid = true);

@@ -13,8 +13,7 @@
 
 <script>
 import io from "socket.io-client";
-var socket = io.connect("http://localhost:5000");
-
+const socket = io.connect("http://localhost:5000");
 import axios from "axios";
 export default {
   data() {
@@ -26,14 +25,13 @@ export default {
     async addMessage() {
       if (this.message) {
         let { data } = await axios.post(
-          "http://localhost:5000/messages/create",
+          "/api/messages/create",
           {
             userName: sessionStorage.getItem("userName"),
             text: this.message,
           }
         );
         this.message = "";
-        // this.$emit("addMessage", data);
         socket.emit("newMessage", data);
       }
     },

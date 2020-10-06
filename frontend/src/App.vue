@@ -6,8 +6,6 @@
 </template>
 
 <script>
-/*eslint-disable*/
-import axios from "axios";
 import SignUp from "./components/SignUp";
 import Chats from "./components/Chats";
 export default {
@@ -40,7 +38,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 html,
 body,
 #app {
