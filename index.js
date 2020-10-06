@@ -31,14 +31,14 @@ mongoDb.on('error', (error) => {
     console.log(`Faced Error ${error}`)
 })
 
-if (process.env.NODE_ENV === "production") {
-    // Serves files from our dist directory 
-    app.use(express.static(__dirname + '/frontend/dist'))
-    // For managing the routes in a SPA
-    app.get(/.*/, (req, res) => {
-        res.sendFile(__dirname + '/frontend/dist/index.html')
-    })
-}
+// if (process.env.NODE_ENV === "production") {
+// Serves files from our dist directory 
+app.use(express.static(__dirname + '/frontend/dist'))
+// For managing the routes in a SPA
+app.get(/.*/, (req, res) => {
+    res.sendFile(__dirname + '/frontend/dist/index.html')
+})
+// }
 
 // const port = process.env.PORT || 5000
 // Running app on a given port
