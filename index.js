@@ -32,14 +32,26 @@ mongoDb.on('error', (error) => {
     console.log(`Faced Error ${error}`)
 })
 
-if (process.env.NODE_ENV === "production") {
-    // Serves files from our dist directory 
-    app.use(express.static('frontend/dist'))
-    // For managing the routes in a SPA
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
+if (process.env.NODE_ENV === 'production') {
+    // static folder
+    app.use(express.static(__dirname + '/public'))
+
+    // Handle SPA (Vue Frontend)
+    app.get('/.*/', (req, res) => {
+        res.sendFile(__dirname + 'public/index.html')
     })
 }
+
+
+
+// if (process.env.NODE_ENV === "production") {
+//     // Serves files from our dist directory 
+//     app.use(express.static('frontend/dist'))
+//     // For managing the routes in a SPA
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
+//     })
+// }
 
 
 const port = process.env.PORT || 5000
