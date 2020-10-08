@@ -33,7 +33,7 @@ export default {
     };
   },
   async mounted() {
-    let { data } = await axios.get("api/messages");
+    let { data } = await axios.get("http://localhost:5000/messages");
     this.messages = data;
   },
   created() {
