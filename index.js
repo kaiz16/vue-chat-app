@@ -43,15 +43,15 @@ if (process.env.NODE_ENV === "production") {
 const port = process.env.PORT || 5000
 // Running app on a given port
 
-const server = app.listen(port, () => {
+app.listen(port, () => {
     console.log(`server is running on port ${port}`)
 });
 
 // Sockets 
-const io = require('socket.io')(server, { origins: '*:*' });
+// const io = require('socket.io')(server,);
 // io.set("origins", "*:*");
-io.on('connection', socket => {
-    socket.on('newMessage', (newMessage) => {
-        socket.broadcast.emit('addMessage', newMessage)
-    })
-})
+// io.on('connection', socket => {
+//     socket.on('newMessage', (newMessage) => {
+//         socket.broadcast.emit('addMessage', newMessage)
+//     })
+// })

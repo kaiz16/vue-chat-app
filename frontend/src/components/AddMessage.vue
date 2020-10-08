@@ -12,8 +12,9 @@
 </template>
 
 <script>
-import io from "socket.io-client";
-const socket = io.connect("http://localhost:5000");
+/* eslint-disable */
+// import io from "socket.io-client";
+// const socket = io.connect("http://localhost:5000");
 import axios from "axios";
 export default {
   data() {
@@ -29,7 +30,7 @@ export default {
           text: this.message,
         });
         this.message = "";
-        socket.emit("newMessage", data);
+        // socket.emit("newMessage", data);
       }
     },
   },
