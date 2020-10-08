@@ -49,7 +49,6 @@ export default {
         .catch(() => (this.isUserExist = true));
     },
     async signIn() {
-      console.log(process.env.PORT);
       this.isUserExist = false;
       let { data } = await axios.get(
         `https://thc-chat-app.herokuapp.com/users/${this.username}`
