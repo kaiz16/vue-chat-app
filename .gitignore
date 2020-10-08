@@ -2,9 +2,9 @@
 node_modules
 frontend
 # local env files
-# .env.local
-# .env.*.local
-# .env
+.env.local
+.env.*.local
+.env
 
 # Log files
 npm-debug.log*
