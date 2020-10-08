@@ -24,13 +24,10 @@ export default {
   methods: {
     async addMessage() {
       if (this.message) {
-        let { data } = await axios.post(
-          "/api/messages/create",
-          {
-            userName: sessionStorage.getItem("userName"),
-            text: this.message,
-          }
-        );
+        let { data } = await axios.post("api/messages/create", {
+          userName: sessionStorage.getItem("userName"),
+          text: this.message,
+        });
         this.message = "";
         socket.emit("newMessage", data);
       }
