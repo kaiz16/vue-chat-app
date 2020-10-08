@@ -49,7 +49,7 @@ const server = app.listen(port, () => {
 
 // Sockets 
 const io = require('socket.io')(server);
-
+io.set("origins", "*:*");
 io.on('connection', socket => {
     socket.on('newMessage', (newMessage) => {
         socket.broadcast.emit('addMessage', newMessage)
