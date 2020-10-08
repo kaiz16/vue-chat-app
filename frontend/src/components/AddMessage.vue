@@ -26,7 +26,7 @@ export default {
     async addMessage() {
       if (this.message) {
         let { data } = await axios.post(
-          "http://localhost:5000/messages/create",
+          "https://thc-chat-app.herokuapp.com/messages/create",
           {
             userName: sessionStorage.getItem("userName"),
             text: this.message,

@@ -42,16 +42,17 @@ export default {
     signUp() {
       this.isUserInValid = false;
       axios
-        .post("/http://localhost:5000/users/create", {
+        .post("https://thc-chat-app.herokuapp.com/users/create", {
           userName: this.username,
         })
         .then((res) => this.$emit("verifyUser", res.data.userName))
         .catch(() => (this.isUserExist = true));
     },
     async signIn() {
+      console.log(process.env.PORT);
       this.isUserExist = false;
       let { data } = await axios.get(
-        `http://localhost:5000/users/${this.username}`
+        `https://thc-chat-app.herokuapp.com/users/${this.username}`
       );
       if (data) return this.$emit("verifyUser", data.userName);
       else return (this.isUserInValid = true);
