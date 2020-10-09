@@ -13,8 +13,8 @@ app.use(express.json({ extended: false }));
 
 if (process.env.NODE_ENV === 'production') {
     console.log('Prodction')
-    app.use('/api/users', require('./RestApi/user'))
-    app.use('/api/messages', require('./RestApi/message'))
+    app.use('/users', require('./RestApi/user'))
+    app.use('/messages', require('./RestApi/message'))
 } else {
     app.use('/users', require('./RestApi/user'))
     app.use('/messages', require('./RestApi/message'))
@@ -71,7 +71,7 @@ const server = app.listen(port, () => {
 const io = require('socket.io')(server);
 // io.set('origins', '*:*');
 io.on('connection', socket => {
-    console.log('Testing')
+    console.log('New Tesing')
     socket.on('newMessage', (newMessage) => {
         socket.broadcast.emit('addMessage', newMessage)
     })
