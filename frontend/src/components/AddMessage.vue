@@ -14,7 +14,7 @@
 <script>
 /* eslint-disable */
 import io from "socket.io-client";
-const socket = io.connect("https://thc-chat-app.herokuapp.com/");
+const socket = io.connect("http://localhost:5000");
 import axios from "axios";
 export default {
   data() {

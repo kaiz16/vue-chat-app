@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import io from "socket.io-client";
+const io = require("socket.io-client");
 const socket = io.connect("https://thc-chat-app.herokuapp.com");
 import axios from "axios";
 import UserMessage from "./UserMessage.vue";
@@ -31,6 +31,7 @@ export default {
     return {
       messages: [], // Array of messages,
     };
+    // socket: "",
   },
   async mounted() {
     let { data } = await axios.get("api/messages");
