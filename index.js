@@ -18,10 +18,9 @@ if (process.env.NODE_ENV === 'production') {
     app.use('/users', require('./RestApi/user'))
     app.use('/messages', require('./RestApi/message'))
 }
-// Importing our api routes
 
-// const port = process.env.PORT || 5000
-
+// Create a .env file and place your DB connection string inside. 
+// Mongodb = your Mongo Db connection string
 // Connecting to Mongo Db Atlas
 mongoose.connect(process.env.Mongodb,
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, }
@@ -47,18 +46,6 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-
-
-// if (process.env.NODE_ENV === "production") {
-//     // Serves files from our dist directory 
-//     app.use(express.static('frontend/dist'))
-//     // For managing the routes in a SPA
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
-//     })
-// }
-
-
 const port = process.env.PORT || 5000
 // Running app on a given port
 
@@ -68,7 +55,6 @@ const server = app.listen(port, () => {
 
 // Sockets 
 const io = require('socket.io')(server);
-io.set('origins', '*:*');
 io.on('connection', socket => {
     console.log('New Tesing')
     socket.on('newMessage', (newMessage) => {
