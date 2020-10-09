@@ -13,8 +13,8 @@ app.use(express.json({ extended: false }));
 
 if (process.env.NODE_ENV === 'production') {
     console.log('Prodction')
-    app.use('/users', require('./RestApi/user'))
-    app.use('/messages', require('./RestApi/message'))
+    app.use('/api/users', require('./RestApi/user'))
+    app.use('/api/messages', require('./RestApi/message'))
 } else {
     app.use('/users', require('./RestApi/user'))
     app.use('/messages', require('./RestApi/message'))
