@@ -33,9 +33,7 @@ export default {
     };
   },
   async mounted() {
-    let { data } = await axios.get(
-      "https://thc-chat-app.herokuapp.com/messages"
-    );
+    let { data } = await axios.get("api/messages");
     this.messages = data;
   },
   created() {
