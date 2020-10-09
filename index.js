@@ -11,9 +11,14 @@ app.use(cors())
 // Invoking json in our express app.
 app.use(express.json({ extended: false }));
 
+if (process.env.NODE_ENV === 'production') {
+    app.use('/api/users', require('./RestApi/user'))
+    app.use('/api/messages', require('./RestApi/message'))
+} else {
+    app.use('/users', require('./RestApi/user'))
+    app.use('/messages', require('./RestApi/message'))
+}
 // Importing our api routes
-app.use('/users', require('./RestApi/user'))
-app.use('/messages/', require('./RestApi/message'))
 
 // const port = process.env.PORT || 5000
 
