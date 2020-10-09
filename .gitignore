@@ -21,3 +21,4 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+.env $ git rm --cached .env rm .env $ git commit -m Start ignoring .env file
