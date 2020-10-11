@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <SignUp v-if="!isVerified" @verifyUser="userCreated" />
-    <Chats v-if="isVerified" />
+    <SignUp v-if="!isVerified" @verify="isLoggedIn"/>
+    <Chats v-else @verify="isLoggedIn"/>
   </div>
 </template>
 
@@ -12,44 +12,46 @@ export default {
   name: "App",
   data() {
     return {
-      isVerified: null,
-      userName: "",
+      isVerified: false,
     };
   },
   components: {
     SignUp,
     Chats,
   },
-  async mounted() {
-    if (sessionStorage.getItem("userName")) {
-      this.isVerified = true;
-      this.userName = sessionStorage.getItem("userName");
-    } else {
-      console.log("NOt verified");
-    }
+  mounted(){
+    this.isLoggedIn()
   },
   methods: {
-    userCreated(userName) {
-      this.isVerified = true;
-      this.userName = userName;
-      sessionStorage.setItem("userName", userName);
-    },
-  },
+    isLoggedIn(){
+      const userName = sessionStorage.getItem('userName')
+      if (userName){
+        this.isVerified = true
+      }else{
+        this.isVerified = false
+      }
+    }
+  }
 };
 </script>
 
 <style>
 html,
 body,
-#app {
-  height: 100%;
-  width: 100%;
-  padding: 20px;
+html, body, #app {
+  min-height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   overflow: auto;
   color: #2c3e50;
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }
 </style>
