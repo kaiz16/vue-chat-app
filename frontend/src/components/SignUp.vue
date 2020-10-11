@@ -50,9 +50,7 @@ export default {
     },
     async signIn() {
       this.isUserExist = false;
-      let { data } = await axios.get(
-        `/api/users/${this.username}`
-      );
+      let { data } = await axios.get(`/api/users/${this.username}`);
       if (data) return this.$emit("verifyUser", data.userName);
       else return (this.isUserInValid = true);
     },

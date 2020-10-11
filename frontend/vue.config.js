@@ -1,7 +1,9 @@
+const path = require('path')
 module.exports = {
+    outputDir: path.resolve(__dirname, '../public'),
     devServer: {
         proxy: {
-        "^/api": {
+            "^/api": {
                 target: "http://localhost:5000",
                 changeOrigin: true,
                 // logLevel: "debug",
@@ -10,4 +12,4 @@ module.exports = {
             }
         }
     }
-  };
+};

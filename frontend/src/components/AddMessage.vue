@@ -12,8 +12,9 @@
 </template>
 
 <script>
+/* eslint-disable */
 import io from "socket.io-client";
-const socket = io.connect("http://192.168.1.11:5000");
+const socket = io.connect("https://thc-chat-app.herokuapp.com");
 import axios from "axios";
 export default {
   data() {
@@ -24,13 +25,10 @@ export default {
   methods: {
     async addMessage() {
       if (this.message) {
-        let { data } = await axios.post(
-          "/api/messages/create",
-          {
-            userName: sessionStorage.getItem("userName"),
-            text: this.message,
-          }
-        );
+        let { data } = await axios.post("api/messages/create", {
+          userName: sessionStorage.getItem("userName"),
+          text: this.message,
+        });
         this.message = "";
         socket.emit("newMessage", data);
       }

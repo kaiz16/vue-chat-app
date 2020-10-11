@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose')
+// const path = require('path')
 const cors = require('cors')
 
 require('dotenv').config()
@@ -10,12 +11,16 @@ app.use(cors())
 // Invoking json in our express app.
 app.use(express.json({ extended: false }));
 
-// Importing our api routes
-app.use('/users', require('./RestApi/user'))
-app.use('/messages/', require('./RestApi/message'))
+if (process.env.NODE_ENV === 'production') {
+    app.use('/api/users', require('./RestApi/user'))
+    app.use('/api/messages', require('./RestApi/message'))
+} else {
+    app.use('/users', require('./RestApi/user'))
+    app.use('/messages', require('./RestApi/message'))
+}
 
-// const port = process.env.PORT || 5000
-
+// Create a .env file and place your DB connection string inside. 
+// Mongodb = your Mongo Db connection string
 // Connecting to Mongo Db Atlas
 mongoose.connect(process.env.Mongodb,
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, }
@@ -31,12 +36,13 @@ mongoDb.on('error', (error) => {
     console.log(`Faced Error ${error}`)
 })
 
-if (process.env.NODE_ENV === "production") {
-    // Serves files from our dist directory 
-    app.use(express.static(__dirname + '/frontend/dist'))
-    // For managing the routes in a SPA
-    app.get(/.*/, (req, res) => {
-        res.sendFile(__dirname + '/frontend/dist/index.html')
+if (process.env.NODE_ENV === 'production') {
+    // static folder
+    app.use(express.static(__dirname + '/public'))
+
+    // Handle SPA (Vue Frontend)
+    app.get('/.*/', (req, res) => {
+        res.sendFile(__dirname + 'public/index.html')
     })
 }
 
@@ -49,8 +55,8 @@ const server = app.listen(port, () => {
 
 // Sockets 
 const io = require('socket.io')(server);
-
 io.on('connection', socket => {
+    console.log('New Tesing')
     socket.on('newMessage', (newMessage) => {
         socket.broadcast.emit('addMessage', newMessage)
     })
