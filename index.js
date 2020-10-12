@@ -56,8 +56,11 @@ const server = app.listen(port, () => {
 // Sockets 
 const io = require('socket.io')(server);
 io.on('connection', socket => {
-    console.log('New Tesing')
     socket.on('newMessage', (newMessage) => {
         socket.broadcast.emit('addMessage', newMessage)
+    })
+    socket.on('deleteMessage', (_id) => {
+        console.log(_id)
+        // socket.broadcast.emit('messageDeleted', _id)
     })
 })

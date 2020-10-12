@@ -1,18 +1,17 @@
 <template>
-  <div class="box">
-    <b-input
+  <b-input
       placeholder="Ex: Hello world"
       v-model="message"
       type="textarea"
+      @keyup.enter.native="addMessage()"
+      custom-class="input"
       maxlength="100"
     >
     </b-input>
-    <b-button type="is-primary" @click="addMessage">Send</b-button>
-  </div>
 </template>
 
 <script>
-/* eslint-disable */
+/*eslint-disable*/
 import io from "socket.io-client";
 const socket = io.connect("https://thc-chat-app.herokuapp.com");
 import axios from "axios";
@@ -38,4 +37,5 @@ export default {
 </script>
 
 <style>
+
 </style>
