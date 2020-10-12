@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use('/messages', require('./RestApi/message'))
 }
 
-// Create a .env file and place your DB connection string inside. 
+// Create a .env file and place your DB connection string 
 // Mongodb = your Mongo Db connection string
 // Connecting to Mongo Db Atlas
 mongoose.connect(process.env.Mongodb,
