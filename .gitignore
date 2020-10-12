@@ -1,10 +1,10 @@
 .DS_Store
 node_modules
-frontend
+# frontend
 # local env files
 .env.local
 .env.*.local
-*.env
+.env
 
 # Log files
 npm-debug.log*
