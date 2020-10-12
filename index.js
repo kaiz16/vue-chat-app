@@ -60,7 +60,6 @@ io.on('connection', socket => {
         socket.broadcast.emit('addMessage', newMessage)
     })
     socket.on('deleteMessage', (_id) => {
-        console.log(_id)
-        // socket.broadcast.emit('messageDeleted', _id)
+        socket.broadcast.emit('messageDeleted', _id)
     })
 })

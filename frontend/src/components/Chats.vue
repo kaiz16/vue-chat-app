@@ -19,7 +19,7 @@
 </template>
 
 <script>
-const io = require("socket.io-client");
+import io from "socket.io-client";
 const socket = io.connect("https://thc-chat-app.herokuapp.com");
 import axios from "axios";
 import UserMessage from "./UserMessage.vue";
@@ -62,8 +62,7 @@ export default {
       });
     });
     socket.on("messageDeleted", (id) => {
-      console.log(id);
-      // this.messages = this.messages.filter(({ _id }) => _id !== id);
+      this.messages = this.messages.filter(({ _id }) => _id !== id);
     });
   },
 };

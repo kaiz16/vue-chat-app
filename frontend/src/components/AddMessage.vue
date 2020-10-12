@@ -1,13 +1,13 @@
 <template>
   <b-input
-      placeholder="Ex: Hello world"
-      v-model="message"
-      type="textarea"
-      @keyup.enter.native="addMessage()"
-      custom-class="input"
-      maxlength="100"
-    >
-    </b-input>
+    placeholder="Ex: Hello world"
+    v-model="message"
+    type="textarea"
+    @keyup.enter.native="addMessage()"
+    custom-class="input"
+    maxlength="100"
+  >
+  </b-input>
 </template>
 
 <script>
@@ -37,5 +37,4 @@ export default {
 </script>
 
 <style>
-
 </style>

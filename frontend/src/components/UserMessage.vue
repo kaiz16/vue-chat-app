@@ -10,7 +10,7 @@
         {{ transformDateAndTime(message.createdAt) }}
       </p>
     </div>
-    <div class="column">
+    <div class="column" v-if="userName === message.userName">
       <button
         class="button is-danger is-rounded mb-5"
         @click="deleteMessage(message._id)"
@@ -22,12 +22,17 @@
 </template>
 
 <script>
-const io = require("socket.io-client");
+import io from "socket.io-client";
 const socket = io.connect("https://thc-chat-app.herokuapp.com");
 import moment from "moment-timezone";
 import axios from "axios";
 export default {
   props: ["message"],
+  data() {
+    return {
+      userName: sessionStorage.getItem("userName"),
+    };
+  },
   methods: {
     transformDateAndTime(string) {
       var userLocation = moment.tz.guess();
