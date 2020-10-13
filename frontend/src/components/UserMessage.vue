@@ -1,16 +1,16 @@
 <template>
   <div class="main">
-    <div class="left">
+    <div class="username">
       <b-icon icon="account-circle-outline" size="is-medium"></b-icon>
       <p class="title is-7">{{ message.userName }}</p>
     </div>
-    <div class="right">
+    <div class="message">
       <p class="subtitle is-5 has-text-dark text">{{ message.text }}</p>
       <p class="title is-6 is-italic date">
         {{ transformDateAndTime(message.createdAt) }}
       </p>
     </div>
-    <div class="column" v-if="userName === message.userName">
+    <div class="btn" v-if="userName === message.userName">
       <button
         class="button is-danger is-rounded mb-5"
         @click="deleteMessage(message._id)"
@@ -52,25 +52,41 @@ export default {
   display: flex;
   flex-direction: row;
   margin: 10px;
+  align-items: center;
 }
-
-.left {
+.username {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 10px;
+  flex: 1;
 }
 
-.right {
+.message {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 10px;
+  padding: 0px 10px;
+  flex: 3;
 }
-
+.btn {
+  display: flex;
+  flex: 1;
+}
 .text {
   width: auto;
   background: whitesmoke;
   padding: 20px;
   border-radius: 10px;
+}
+button:hover {
+  transition: 3s;
+  transform: rotateZ(360deg);
+}
+@media only screen and (max-width: 790px) {
+  .main {
+    flex-direction: column;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="chats card">
+  <div class="chats">
     <div class="logout">
       <b-button type="is-white" icon-left="logout" @click="logout"
         >Logout</b-button
@@ -69,6 +69,9 @@ export default {
 </script>
 
 <style>
+body {
+  background: snow;
+}
 .chats {
   display: flex;
   height: 100vh;
@@ -77,6 +80,8 @@ export default {
   flex-direction: column;
   padding: 20px;
   align-items: center;
+  background: #b89f9a;
+  box-shadow: 10px 10px 15px grey;
 }
 .messages {
   height: 100vh;
@@ -84,12 +89,15 @@ export default {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   overflow: auto;
 }
-
 .send-message {
   width: 100%;
   flex-grow: 5;
+}
+@media only screen and (max-width: 700px) {
+  .chats {
+    width: 100%;
+  }
 }
 </style>
