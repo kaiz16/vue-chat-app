@@ -105,7 +105,7 @@ body {
     position: relative;
     bottom: 0px;
     padding: 0px 2px;
-    height: 20vh;
+    height: 25vh;
   }
 }
 </style>

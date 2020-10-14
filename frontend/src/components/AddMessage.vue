@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="msg-box">
     <b-input
       placeholder="Ex: Hello world"
       v-model="message"
@@ -54,7 +54,7 @@ export default {
 @media only screen and (max-width: 700px) {
   .btn-box {
     position: relative;
-    bottom: 15px;
+    bottom: 2vh;
   }
 }
 </style>
