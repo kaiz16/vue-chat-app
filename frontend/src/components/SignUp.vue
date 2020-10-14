@@ -88,7 +88,4 @@ export default {
   display: flex;
   justify-content: center;
 }
-.alertText {
-  width: 30%;
-}
 </style>

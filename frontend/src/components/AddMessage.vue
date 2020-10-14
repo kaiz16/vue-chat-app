@@ -51,4 +51,10 @@ export default {
   width: 40%;
   border-radius: 10px;
 }
+@media only screen and (max-width: 700px) {
+  .btn-box {
+    position: relative;
+    bottom: 15px;
+  }
+}
 </style>
