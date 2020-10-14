@@ -1,13 +1,19 @@
 <template>
-  <b-input
-    placeholder="Ex: Hello world"
-    v-model="message"
-    type="textarea"
-    @keyup.enter.native="addMessage()"
-    custom-class="input"
-    maxlength="100"
-  >
-  </b-input>
+  <div>
+    <b-input
+      placeholder="Ex: Hello world"
+      v-model="message"
+      type="textarea"
+      class="inp-box"
+      maxlength="100"
+    >
+    </b-input>
+    <div class="btn-box">
+      <b-button class="btn" @click="addMessage" type="is-success">
+        Send
+      </b-button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -18,7 +24,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      message: "",
+      message: null,
     };
   },
   methods: {
@@ -28,7 +34,7 @@ export default {
           userName: sessionStorage.getItem("userName"),
           text: this.message,
         });
-        this.message = "";
+        this.message = null;
         socket.emit("newMessage", data);
       }
     },
@@ -36,5 +42,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.btn-box {
+  width: 100%;
+  text-align: center;
+}
+.btn {
+  width: 40%;
+  border-radius: 10px;
+}
 </style>

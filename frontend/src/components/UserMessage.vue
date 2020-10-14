@@ -2,15 +2,15 @@
   <div class="main">
     <div class="username">
       <b-icon icon="account-circle-outline" size="is-medium"></b-icon>
-      <p class="title is-7">{{ message.userName }}</p>
+      <p class="title is-5">{{ message.userName }}</p>
     </div>
     <div class="message">
-      <p class="subtitle is-5 has-text-dark text">{{ message.text }}</p>
+      <p class="subtitle is-9 has-text-dark text">{{ message.text }}</p>
       <p class="title is-6 is-italic date">
         {{ transformDateAndTime(message.createdAt) }}
       </p>
     </div>
-    <div class="btn" v-if="userName === message.userName">
+    <div :class="['btn', userName === message.userName ? 'visible' : 'hide']">
       <button
         class="button is-danger is-rounded mb-5"
         @click="deleteMessage(message._id)"
@@ -63,11 +63,11 @@ export default {
 }
 
 .message {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
-  padding: 0px 10px;
+  margin-right: 10px;
   flex: 3;
 }
 .btn {
@@ -80,6 +80,12 @@ export default {
   padding: 20px;
   border-radius: 10px;
 }
+.visible {
+  visibility: visible;
+}
+.hide {
+  visibility: hidden;
+}
 button:hover {
   transition: 3s;
   transform: rotateZ(360deg);
@@ -87,6 +93,12 @@ button:hover {
 @media only screen and (max-width: 790px) {
   .main {
     flex-direction: column;
+  }
+  .visible {
+    display: auto;
+  }
+  .hide {
+    display: none;
   }
 }
 </style>

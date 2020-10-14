@@ -80,7 +80,7 @@ body {
   flex-direction: column;
   padding: 20px;
   align-items: center;
-  background: #b89f9a;
+  background: #f1d6d0;
   box-shadow: 10px 10px 15px grey;
 }
 .messages {

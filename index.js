@@ -11,17 +11,9 @@ app.use(cors())
 // Invoking json in our express app.
 app.use(express.json({ extended: false }));
 
-if (process.env.NODE_ENV === 'production') {
-    app.use('/api/users', require('./RestApi/user'))
-    app.use('/api/messages', require('./RestApi/message'))
-} else {
-    app.use('/users', require('./RestApi/user'))
-    app.use('/messages', require('./RestApi/message'))
-}
-
-// Create a .env file and place your DB connection string 
-// Mongodb = your Mongo Db connection string
-// Connecting to Mongo Db Atlas
+app.use('/api/users', require('./RestApi/user'))
+app.use('/api/messages', require('./RestApi/message'))
+// Connecting to mongo db
 mongoose.connect(process.env.Mongodb,
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, }
 )
@@ -56,6 +48,7 @@ const server = app.listen(port, () => {
 // Sockets 
 const io = require('socket.io')(server);
 io.on('connection', socket => {
+    console.log('Testing')
     socket.on('newMessage', (newMessage) => {
         socket.broadcast.emit('addMessage', newMessage)
     })
