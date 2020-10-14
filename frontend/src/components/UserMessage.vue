@@ -2,11 +2,11 @@
   <div class="main">
     <div class="username">
       <b-icon icon="account-circle-outline" size="is-medium"></b-icon>
-      <p class="title is-5">{{ message.userName }}</p>
+      <p class="name">{{ message.userName }}</p>
     </div>
     <div class="message">
-      <p class="subtitle is-9 has-text-dark text">{{ message.text }}</p>
-      <p class="title is-6 is-italic date">
+      <p class="text">{{ message.text }}</p>
+      <p class="date">
         {{ transformDateAndTime(message.createdAt) }}
       </p>
     </div>
@@ -58,7 +58,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
   flex: 1;
 }
 
@@ -66,19 +65,22 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: column;
+  flex: 3;
   align-items: center;
   margin-right: 10px;
-  flex: 3;
+  border-radius: 10px;
+  padding: 5px 50px 0px 5px;
+  min-height: 40px;
 }
 .btn {
   display: flex;
   flex: 1;
 }
-.text {
-  width: auto;
-  background: whitesmoke;
-  padding: 20px;
-  border-radius: 10px;
+/* .text { */
+/* } */
+.date {
+  font-weight: bold;
+  /* font-size: 14px; */
 }
 .visible {
   visibility: visible;
@@ -92,13 +94,17 @@ button:hover {
 }
 @media only screen and (max-width: 790px) {
   .main {
-    flex-direction: column;
+    margin: 1px 2px;
+    font-size: 12px;
+  }
+  .date {
+    font-size: 12px;
   }
   .visible {
     display: auto;
   }
   .hide {
-    display: none;
+    display: hidden;
   }
 }
 </style>
