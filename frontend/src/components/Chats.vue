@@ -100,12 +100,5 @@ body {
     width: 100%;
     padding-top: 0px;
   }
-  /* .send-message {
-    background: #f1d6d0;
-    position: relative;
-    bottom: 0px;
-    padding: 0px 2px;
-    height: 25vh;
-  }*/
 }
 </style>
