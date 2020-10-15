@@ -1,21 +1,16 @@
 <template>
-  <div class="columns mx-2 is-mobile main">
-    <div class="column is-one-quarter">
+  <div class="main">
+    <div class="username">
       <b-icon icon="account-circle-outline" size="is-medium"></b-icon>
       <p class="name">{{ message.userName }}</p>
     </div>
-    <div class="column is-three-fifths">
+    <div class="message">
       <p class="text">{{ message.text }}</p>
       <p class="date">
         {{ transformDateAndTime(message.createdAt) }}
       </p>
     </div>
-    <div
-      :class="[
-        'is-one-fifths',
-        userName === message.userName ? 'visible' : 'hide',
-      ]"
-    >
+    <div :class="['btn', userName === message.userName ? 'visible' : 'hide']">
       <button
         class="button is-danger is-rounded mb-5"
         @click="deleteMessage(message._id)"
@@ -53,19 +48,18 @@ export default {
 </script>
 
 <style scoped>
-/* .main { */
-/* display: flex; */
-/* flex-direction: row; */
-/* margin: 10px; */
-/* align-items: center; */
-/* } */
+.main {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  align-items: center;
+}
 .username {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1;
 }
-
 .message {
   width: 100%;
   display: flex;
@@ -76,6 +70,10 @@ export default {
   border-radius: 10px;
   padding: 5px 50px 0px 5px;
   min-height: 40px;
+}
+.btn {
+  display: flex;
+  flex: 1;
 }
 .date {
   font-weight: bold;
