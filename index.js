@@ -48,7 +48,6 @@ const server = app.listen(port, () => {
 // Sockets 
 const io = require('socket.io')(server);
 io.on('connection', socket => {
-    console.log('Testing')
     socket.on('newMessage', (newMessage) => {
         socket.broadcast.emit('addMessage', newMessage)
     })
@@ -56,3 +55,5 @@ io.on('connection', socket => {
         socket.broadcast.emit('messageDeleted', _id)
     })
 })
+// io.on
+// io.emit
