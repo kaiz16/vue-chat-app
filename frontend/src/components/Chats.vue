@@ -73,7 +73,7 @@ body {
   background: snow;
 }
 .chats {
-  height: 100vh;
+  height: fit-content;
   display: flex;
   width: 50%;
   margin: 0 auto;

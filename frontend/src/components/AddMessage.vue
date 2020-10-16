@@ -44,6 +44,8 @@ export default {
 
 <style scoped>
 .btn-box {
+  position: sticky;
+  top: 10px;
   width: 100%;
   text-align: center;
 }
