@@ -50,6 +50,7 @@ export default {
 <style scoped>
 .main {
   display: flex;
+  height: 100vh;
   flex-direction: row;
   margin: 10px;
   align-items: center;

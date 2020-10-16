@@ -74,7 +74,7 @@ body {
 }
 .chats {
   display: flex;
-  /* height: 100vh; */
+  height: 100vh;
   width: 50%;
   margin: 0 auto;
   flex-direction: column;
