@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <SignUp v-if="!isVerified" @verify="isLoggedIn"/>
-    <Chats v-else @verify="isLoggedIn"/>
+    <SignUp v-if="!isVerified" @verify="isLoggedIn" />
+    <Chats v-else @verify="isLoggedIn" />
   </div>
 </template>
 
@@ -19,27 +19,29 @@ export default {
     SignUp,
     Chats,
   },
-  mounted(){
-    this.isLoggedIn()
+  mounted() {
+    this.isLoggedIn();
   },
   methods: {
-    isLoggedIn(){
-      const userName = sessionStorage.getItem('userName')
-      if (userName){
-        this.isVerified = true
-      }else{
-        this.isVerified = false
+    isLoggedIn() {
+      const userName = sessionStorage.getItem("userName");
+      if (userName) {
+        this.isVerified = true;
+      } else {
+        this.isVerified = false;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style>
 html,
 body,
-html, body, #app {
-  min-height: 100vh;
+html,
+body,
+#app {
+  /* min-height: 100vh; */
   width: 100vw;
   padding: 0;
   margin: 0;
