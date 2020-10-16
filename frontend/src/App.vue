@@ -41,7 +41,6 @@ body,
 html,
 body,
 #app {
-  /* min-height: 100vh; */
   width: 100vw;
   padding: 0;
   margin: 0;
@@ -49,7 +48,6 @@ body,
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: auto;
-  color: #2c3e50;
 }
 
 ::-webkit-scrollbar {
