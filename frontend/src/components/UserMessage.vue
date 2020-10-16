@@ -70,7 +70,7 @@ export default {
   align-items: center;
   margin-right: 10px;
   border-radius: 10px;
-  padding: 5px 50px 0px 5px;
+  padding: 5px 5px 0px 5px;
   min-height: 40px;
   white-space: pre-wrap;
 }
