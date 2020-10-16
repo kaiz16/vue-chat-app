@@ -50,7 +50,6 @@ export default {
 <style scoped>
 .main {
   display: flex;
-  /* height: 100vh; */
   flex-direction: row;
   margin: 10px;
   align-items: center;
@@ -102,6 +101,7 @@ button:hover {
     width: 4vw;
     height: 5vh;
     margin-bottom: 15px;
+    text-align: center;
   }
   .main {
     margin: 1px 2px;

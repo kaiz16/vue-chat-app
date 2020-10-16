@@ -74,7 +74,6 @@ body {
 }
 .chats {
   display: flex;
-  height: 100vh;
   width: 50%;
   margin: 0 auto;
   flex-direction: column;
@@ -84,7 +83,6 @@ body {
   box-shadow: 10px 10px 15px grey;
 }
 .messages {
-  /* height: 100vh; */
   width: 100%;
   flex-grow: 1;
   display: flex;
