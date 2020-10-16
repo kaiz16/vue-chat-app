@@ -99,7 +99,8 @@ button:hover {
 @media only screen and (max-width: 790px) {
   .button {
     width: 4vw;
-    height: 4vh;
+    height: 5vh;
+    margin-bottom: 15px;
   }
   .main {
     margin: 1px 2px;
