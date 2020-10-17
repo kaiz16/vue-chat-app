@@ -96,7 +96,7 @@ body {
 }
 @media only screen and (max-width: 700px) {
   .chats {
-    height: auto;
+    height: 100%;
     width: 100%;
     padding-top: 0px;
   }

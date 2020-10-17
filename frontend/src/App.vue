@@ -38,8 +38,6 @@ export default {
 <style>
 html,
 body,
-html,
-body,
 #app {
   height: 100vh;
   width: 100vw;
