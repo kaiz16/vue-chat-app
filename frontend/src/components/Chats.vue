@@ -73,7 +73,7 @@ body {
   background: snow;
 }
 .chats {
-  height: 100vh;
+  height: 100%;
   display: flex;
   width: 50%;
   margin: 0 auto;
@@ -96,7 +96,7 @@ body {
 }
 @media only screen and (max-width: 700px) {
   .chats {
-    height: 100%;
+    height: auto;
     width: 100%;
     padding-top: 0px;
   }

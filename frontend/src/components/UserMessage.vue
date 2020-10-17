@@ -49,6 +49,7 @@ export default {
 
 <style scoped>
 .main {
+  height: 100%;
   display: flex;
   flex-direction: row;
   margin: 10px;
